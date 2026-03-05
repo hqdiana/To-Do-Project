@@ -1,0 +1,114 @@
+body {
+    background-color: rgb(255, 247, 236);
+        margin: 0;
+        padding: 0; 
+}
+
+.container {
+    height: 100vh;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 35px;
+}
+
+.task-tracker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.taskInput, .dateInput {
+    border-radius: 10px;
+    border: 1px solid rgb(187, 118, 39);
+    color: rgba(149, 123, 89, 0.76);
+    font-size: 0.7rem;
+    background-color: rgb(255, 252, 248);
+}
+
+.dateInput {
+    width: 8%;
+    padding: 10px;
+}
+
+.taskInput {
+    width: 12%;
+    padding: 9.5px;
+}
+
+.addTask {
+    width: 4%;
+    padding: 9px;
+    border: 1px solid rgb(187, 118, 39);
+    border-radius: 10px;
+    color: rgba(149, 123, 89, 0.76);
+    font-size: 0.7rem;
+    background-color: rgb(255, 252, 248);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.addTask:hover {
+    border: 1px solid rgb(187, 118, 39);
+    color: rgba(149, 123, 89, 0.76);
+    font-size: 0.7rem;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.progress-tracker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+    color: rgb(59, 84, 57);
+    position: sticky;
+
+}
+
+.hero-container img {
+    width: 250px;
+    height: 320px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.resetBtn {
+    padding: 5px 6px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: rgba(149, 123, 89, 0.76);
+    font-size: 0.6rem;
+    background-color: rgba(255, 255, 255, 0.568);
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-top: 30px;
+    box-shadow: 0px 1px 5px rgba(230, 207, 176, 0.76);
+}
+
+.resetBtn:hover {
+    box-shadow: 0px 1px 8px rgba(149, 123, 89, 0.76);
+}
+
+.completedTasks {
+    margin-bottom: 10px;
+    font-size: 0.7rem;
+    border: none;
+    background-color: transparent;
+    color: rgba(149, 123, 89, 0.541);
+    cursor: pointer;
+    font-family: "Sour Gummy", sans-serif;
+}
+
+.completedTasks:hover {
+   text-decoration: underline;
+   color: rgba(196, 132, 49, 0.541);
+}
