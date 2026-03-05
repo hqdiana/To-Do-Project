@@ -1,0 +1,11 @@
+.progressBar {
+    width: 260px;
+    height: 20px;
+    border: 1px solid rgb(187, 118, 39);
+    border-radius: 10px;
+    background-color:transparent;
+    color: rgba(149, 123, 89, 0.76);
+    display: grid;
+    place-items: center;
+    
+}
