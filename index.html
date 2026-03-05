@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="toDo.css">
+
+</head>
+<body>
+    <section class="container">
+        <section class="header">
+            <div class="hero-container">
+                <img src="/To Do Project/fox-flake-3.png">
+            </div>
+        </section>
+
+        <section class="task-section">
+            <div class="task-tracker"> 
+                    <input class="taskInput" type="text" placeholder="task to accomplish">
+                    <input class="dateInput" type="date">
+                <button class="addTask">Add</button>
+            </div>
+            <div class="noDateError"></div>
+            <div class="taskList"></div>
+        </section>
+
+        <section class="progress-tracker">
+            <button class="completedTasks">see completed tasks</button>
+            <div class="progressBar">
+            </div>
+            <button class="resetBtn">reset list and progress</button>
+        </section>
+    </section>
+
+    <script src="/To Do Project/toDo.js"></script>
+
+</body>
+</html>
