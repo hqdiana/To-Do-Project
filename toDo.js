@@ -130,6 +130,9 @@ taskList.addEventListener('click', (e) => {
                 break;
             }
         }
+    
+        addProgress(10);
+
     // Stringify updated array
     let doneTask = JSON.stringify(storedTask); 
 
