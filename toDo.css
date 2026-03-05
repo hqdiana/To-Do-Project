@@ -112,3 +112,86 @@ body {
    text-decoration: underline;
    color: rgba(196, 132, 49, 0.541);
 }
+
+.taskItem {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 32.4rem;
+    font-size: 0.7rem;
+    color: rgba(149, 123, 89, 0.76);
+
+}
+
+.taskDate {
+    text-align: center;
+}
+
+
+.doneBtn {
+    padding: 4px 6px;
+    margin-right: 15px;
+    border: 1px solid rgb(187, 118, 39);
+    border-radius: 100%;
+    color: rgba(149, 123, 89, 0.76);
+    font-size: 0.5rem;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.doneBtn:hover {
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.5rem;
+    background-color: rgb(140, 177, 148);
+    cursor: pointer;
+}
+
+.emptyMessage{
+    background-image: url(empty.png);
+    background-color: rgba(255, 247, 236, 0.4);
+    background-blend-mode: lighten;
+    width: 400px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.taskList {
+    min-height: 120px;
+    margin: 20px 0;
+}
+
+.addMore {
+    background-image: url(more.png);
+    background-color: rgba(255, 247, 236, 0.4);
+    background-blend-mode: lighten;
+    width: 400px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.addFirstTask {
+    background-image: url(first.png);
+    background-color: rgba(255, 247, 236, 0.4);
+    background-blend-mode: lighten;
+    width: 400px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.noDate {
+    font-size: 0.7rem;
+    color: rgba(218, 69, 23, 0.541);
+    text-align: right;
+    font-family: "Sour Gummy", sans-serif;
+}
+
+.noDateError {
+    margin: 0 auto;
+    margin-top: -8px;
+    width: 14.2rem;
+    text-align: right;
+}
