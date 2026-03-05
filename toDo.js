@@ -22,9 +22,16 @@ function renderTasks() {
 
     // set default html task list element as empty
     taskList.innerHTML = "";
+    let tasksCounter = 0;
 
     // loop through the task list array
     for (let i = 0; i < storedTask.length; i++) {
+
+         // check each current views total of tasks
+        if ((currentView === 'active' && storedTask[i].completed === false ) || 
+            (currentView === 'completed' && storedTask[i].completed === true)) {
+
+            tasksCounter += 1;
 
         // for each value of the array create needed html elements
             var div = document.createElement('div');
@@ -57,6 +64,7 @@ function renderTasks() {
             taskList.appendChild(div);
         }
     }
+}
 
 // create a function to retrieve input values + store them 
 function createTaskList() {
@@ -126,10 +134,9 @@ taskList.addEventListener('click', (e) => {
     // loop through storedTask to see which one was clicked done
     for (let i = 0; i < storedTask.length; i++) {
         if (storedTask[i].id === clickedId) {
-                storedTask.splice(i, 1);
-                break;
-            }
+            storedTask[i].completed = true
         }
+    } 
     
         addProgress(10);
 
