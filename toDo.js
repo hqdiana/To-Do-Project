@@ -140,3 +140,15 @@ taskList.addEventListener('click', (e) => {
     
     }
 });
+
+// create function for reset button that clears storage and task list when clicked
+function clearList() {
+    let resetBtn = document.querySelector('.resetBtn');
+    resetBtn.addEventListener('click', function() {
+        localStorage.clear();
+        storedTask = [];
+        currentView = 'active';
+        renderTasks();
+    })
+};
+clearList();
