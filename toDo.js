@@ -15,6 +15,7 @@ window.onload = function displayStoredTasks () {
         storedTask = parseTask;
 
     renderTasks();
+    notification();
 }
 
 // create function to render tasks on display
@@ -108,6 +109,7 @@ function createTaskList() {
 
             renderTasks();
         }
+        notification();
     }) 
 
 }; 
@@ -142,6 +144,7 @@ taskList.addEventListener('click', (e) => {
     renderTasks();
     
     }
+    notification();
 });
 
 // create function for reset button that clears storage and task list when clicked
@@ -153,6 +156,7 @@ function clearList() {
         currentView = 'active';
         renderTasks();
         resetProgress();
+        notification();
     })
 };
 clearList();
