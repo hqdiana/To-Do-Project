@@ -4,6 +4,18 @@ let storedTask = [];
 // locate html element that will contain the task list items
 const taskList = document.querySelector('.taskList')
 
+// create a function to retrieve stored task list values and display them on load
+window.onload = function displayStoredTasks () { 
+    let parseTask = JSON.parse(localStorage.getItem('storedTask')); 
+
+    if (parseTask === null) {
+        storedTask = [];
+    } else
+        storedTask = parseTask;
+
+    renderTasks();
+}
+
 // create function to render tasks on display
 function renderTasks() {
 
