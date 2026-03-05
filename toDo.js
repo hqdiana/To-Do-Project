@@ -152,6 +152,7 @@ function clearList() {
         storedTask = [];
         currentView = 'active';
         renderTasks();
+        resetProgress();
     })
 };
 clearList();

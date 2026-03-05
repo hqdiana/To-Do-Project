@@ -27,4 +27,14 @@ function addProgress() {
     localStorage.setItem('storedProgress', storedProgress);
 }
 
+function resetProgress() {
+    progress = 0;
+
+    // stringify and store progress value in local storage
+    let storedProgress = JSON.stringify(progress);
+    localStorage.setItem('storedProgress', storedProgress);
+
+    enableProgressBar();
+}
+
 enableProgressBar();
