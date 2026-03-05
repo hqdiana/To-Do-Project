@@ -1,6 +1,21 @@
 // establish base value of progress to 0
 let progress = 0;
 
+addEventListener("DOMContentLoaded", displayStoredProgress); 
+
+// create a function to retrieve stored progress and display it
+function displayStoredProgress() {
+    let parseProgress = JSON.parse(localStorage.getItem('storedProgress'));
+    // if the storage has a value, display that stored value
+    if (parseProgress !== null) {
+        progress = parseProgress;
+    // if the storage is empty let the progress be at 0
+    } else if (parseProgress === null) {
+        progress = 0;
+    }
+    enableProgressBar();
+}; 
+
 // select html element of the progress bar
 const progressBar = document.querySelector('.progressBar');
 // select html element of the done button
