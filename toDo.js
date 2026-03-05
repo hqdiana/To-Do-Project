@@ -64,7 +64,25 @@ function renderTasks() {
             taskList.appendChild(div);
         }
     }
+     // if the storage is empty display image based on progress
+        if (tasksCounter === 0 && currentView === 'active') {
+            if (progress === 0) {
+                var divEmpty = document.createElement('div');
+                divEmpty.classList.add('emptyMessage');
+                taskList.appendChild(divEmpty);
+            } else if (progress > 0) {
+                var divEmpty = document.createElement('div');
+                divEmpty.classList.add('addMore');
+                taskList.appendChild(divEmpty);
+            }
+        } 
+        if (tasksCounter === 0 && currentView === 'completed') {
+            var divEmpty = document.createElement('div');
+                divEmpty.classList.add('addFirstTask');
+                taskList.appendChild(divEmpty);
+        }
 }
+
 
 // create a function to retrieve input values + store them 
 function createTaskList() {
@@ -151,6 +169,21 @@ taskList.addEventListener('click', (e) => {
     }
 });
 
+// assign click listener to toggle views 
+function toggleView () {
+    let viewBtn = document.querySelector('.completedTasks');
+    viewBtn.addEventListener('click', function() {
+        if (currentView === 'active') {
+            currentView = 'completed'
+            viewBtn.innerHTML = 'go back to current tasks'
+        } else { 
+            currentView = 'active'
+            viewBtn.innerHTML = 'see completed tasks'
+        }
+        renderTasks()
+    });
+};
+
 // create function for reset button that clears storage and task list when clicked
 function clearList() {
     let resetBtn = document.querySelector('.resetBtn');
@@ -163,3 +196,4 @@ function clearList() {
     })
 };
 clearList();
+toggleView();
