@@ -1,5 +1,6 @@
 // create empty array to contain the task list items and set current view to active list
 let storedTask = [];
+let currentView = 'active';
 
 // locate html element that will contain the task list items
 const taskList = document.querySelector('.taskList')
@@ -21,7 +22,6 @@ function renderTasks() {
 
     // set default html task list element as empty
     taskList.innerHTML = "";
-    let tasksCounter = 0;
 
     // loop through the task list array
     for (let i = 0; i < storedTask.length; i++) {
@@ -46,7 +46,6 @@ function renderTasks() {
         // add childs elements to parents to display them
             div.appendChild(para);
             div.appendChild(paraDate);
-            taskList.appendChild(div);
 
         // if task is active, add a done button to it, else do not add it
             if (currentView === 'active') {
@@ -55,24 +54,9 @@ function renderTasks() {
             button.textContent = '✔';
             div.appendChild(button);
             }
+            taskList.appendChild(div);
         }
     }
-        // if the storage is empty display image based on progress
-        if (tasksCounter === 0 && currentView === 'active') {
-            // if no progress display add task img
-            if (progress === 0) {
-                var divEmpty = document.createElement('div');
-                divEmpty.classList.add('emptyMessage');
-            // if there is progress display add more task img
-                taskList.appendChild(divEmpty);
-            } else if (progress > 0) {
-                var divEmpty = document.createElement('div');
-                divEmpty.classList.add('addMore');
-                taskList.appendChild(divEmpty);
-            }
-        } 
-
-
 
 // create a function to retrieve input values + store them 
 function createTaskList() {
@@ -128,3 +112,31 @@ function createTaskList() {
 
 }; 
 createTaskList();
+
+// remove done button's div when done button is clicked
+taskList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('doneBtn')) {
+        
+     // grab task element
+    const taskElement = e.target.closest('.taskItem') 
+
+    // convert dataset value into a number
+    const clickedId = Number(taskElement.dataset.id)
+
+    // loop through storedTask to see which one was clicked done
+    for (let i = 0; i < storedTask.length; i++) {
+        if (storedTask[i].id === clickedId) {
+                storedTask.splice(i, 1);
+                break;
+            }
+        }
+    // Stringify updated array
+    let doneTask = JSON.stringify(storedTask); 
+
+    // save updated string into localStorage
+    localStorage.setItem('storedTask', doneTask);
+
+    renderTasks();
+    
+    }
+});
