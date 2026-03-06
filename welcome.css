@@ -49,8 +49,8 @@ body {
     justify-content: center;
     text-align: center;
 
-    width: 600px;
-    height: 300px;
+    width: 550px;
+    height: 250px;
     background: rgba(255, 243, 225, 0.774);
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px 0 rgba(95, 64, 28, 0.37);
@@ -58,7 +58,7 @@ body {
 
     color: #fff;
     font-family: "Nunito", sans-serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
 
     top: 50%;
     left: 50%;
@@ -71,12 +71,7 @@ body {
     animation-delay: 3.5s;
 }
 
-.textSection p {
-    margin: 0;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-}
+
 
 .hero-container p {
     margin: 0;
@@ -100,6 +95,19 @@ body {
 
     animation: h1reveal 3.5s ease forwards;
     animation-delay: 1s;
+}
+
+.textSection p {
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 450px;
+}
+
+.introP {
+    animation: preveal 1s ease forwards;
+    animation-delay: 4.5s;
 }
 
 @keyframes reveal{
@@ -140,6 +148,17 @@ body {
     100% {
         opacity: 0;
         visibility: hidden;
+    }
+}
+
+@keyframes preveal {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
