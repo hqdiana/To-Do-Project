@@ -12,6 +12,9 @@ body {
     overflow: hidden;
     z-index: 0;
     position: relative;
+
+    transform: scale(1.1);
+    z-index: 0;
 }
 
 .hero-container::before {
@@ -20,9 +23,23 @@ body {
     inset: 0;
     background-image: linear-gradient(rgba(27, 21, 16, 0.452), rgba(0, 0, 0, 0.062)), url(fox-print.png);
     background-size: cover;
-    filter: blur(4px);
+    filter: blur(0.8px);
     transform: scale(1.1);
     z-index: 0;  
+
+    animation: bgBlur 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+} 
+
+.hero-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(27, 21, 16, 0.452), rgba(0, 0, 0, 0.062));
+    opacity: 0;
+
+    animation: bgFade 1.5s ease forwards;
+    animation-delay: 0.5s;
 }
 
 .textSection {
@@ -45,9 +62,13 @@ body {
 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 10;
     position: absolute;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+
+    animation: reveal 1s ease-out forwards;
+    animation-delay: 3.5s;
 }
 
 .textSection p {
@@ -57,11 +78,68 @@ body {
     position: absolute;
 }
 
-.introP {
-    animation-name: reveal;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;  
-    animation-timing-function: ease;  
-    animation-delay: 0.8s;
-    color: whitesmoke;
+.hero-container p {
+    margin: 0;
+    opacity: 0;
 }
+
+.welcomeP {
+    width: 100%;
+    font-size: 8rem;
+    z-index: 10;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+
+    text-align: center;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+
+    animation: h1reveal 3.5s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes reveal{
+    0%{
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.85);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes bgBlur {
+    0% {
+    filter: blur(0.8px)
+    }
+    100% {
+    filter: blur(5px);
+    }
+}
+
+@keyframes bgFade {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes h1reveal {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    50% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
