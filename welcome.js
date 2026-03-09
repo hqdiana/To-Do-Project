@@ -3,6 +3,9 @@ const btn = document.querySelector('.nextBtn');
 const text = document.getElementById('messageText');
 const reward = document.querySelector('.inputReward');
 
+const userInput = document.querySelector('.userInput');
+
+const startButton = document.querySelector('.start');
 
 const messages = [
     "sometimes all we need is a little push, this is your little push",
@@ -12,6 +15,7 @@ const messages = [
 ];
 
 let index = 0;
+let storedReward = [];
 
 window.addEventListener('load', () => {
     setTimeout(() => {
@@ -47,5 +51,10 @@ btn.addEventListener('click', function() {
     }, 400);
 
 }); 
+
+startButton.addEventListener('click', function() {
+    let reward = storedReward = userInput.value;
+    localStorage.setItem('storedReward', reward);
+});
 
 
