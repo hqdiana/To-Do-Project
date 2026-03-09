@@ -148,8 +148,7 @@ taskList.addEventListener('click', (e) => {
 function clearList() {
     let resetBtn = document.querySelector('.resetBtn');
     resetBtn.addEventListener('click', function() {
-        localStorage.clear();
-        storedTask = [];
+        localStorage.removeItem('storedTask');
         currentView = 'active';
         renderTasks();
         resetProgress();
