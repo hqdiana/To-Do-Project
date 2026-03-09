@@ -42,37 +42,6 @@ body {
     animation-delay: 0.5s;
 }
 
-.textSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    width: 550px;
-    height: 250px;
-    background: rgba(255, 243, 225, 0.774);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 8px 32px 0 rgba(95, 64, 28, 0.37);
-    border-radius: 20px;
-
-    color: #fff;
-    font-family: "Nunito", sans-serif;
-    font-size: 1.8rem;
-
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-    position: absolute;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.85);
-
-    animation: reveal 1s ease-out forwards;
-    animation-delay: 3.5s;
-}
-
-
-
 .hero-container p {
     margin: 0;
     opacity: 0;
@@ -97,18 +66,77 @@ body {
     animation-delay: 1s;
 }
 
+.textSection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    width: 500px;
+    height: 250px;
+    background: rgba(255, 243, 225, 0.774);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px 0 rgba(95, 64, 28, 0.37);
+    border-radius: 20px;
+
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5rem;
+
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    position: absolute;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+
+    animation: reveal 1s ease-out forwards;
+    animation-delay: 3.5s;
+}
+
 .textSection p {
-    margin: 0;
+    padding: 15% 0;
+    margin: 0 auto;
     opacity: 0;
     visibility: hidden;
+    width: 350px;
+}
+
+.nextBtn {
+    border-radius: 30%;
+    background-color: #ffffffb9;
+    border: 2px solid #fff;
+    padding: 8px 10px;
+    color: rgba(149, 123, 89, 0.541);
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    margin: 0 auto;
+    opacity: 0;
+    left: 48%;
+    top: 65%;
     position: absolute;
-    width: 450px;
+    visibility: hidden;
+
+    animation: preveal 1s ease forwards;
+    animation-delay: 5.5s;;
+}
+
+.nextBtn:hover {
+    background-color: #fff;
+    color: rgba(149, 123, 89, 0.541);
+    box-shadow: 1px 1px 5px rgba(149, 123, 89, 0.411);
+    border: 2px solid transparent;
 }
 
 .introP {
     animation: preveal 1s ease forwards;
     animation-delay: 4.5s;
 }
+
+
+/* ANIMATIONS */
 
 @keyframes reveal{
     0%{
