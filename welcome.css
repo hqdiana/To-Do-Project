@@ -62,7 +62,7 @@ body {
     font-family: "Nunito", sans-serif;
     font-weight: 800;
 
-    animation: h1reveal 3.5s ease forwards;
+    animation: h1reveal 3s ease forwards;
     animation-delay: 1s;
 }
 
@@ -72,7 +72,7 @@ body {
     text-align: center;
 
     width: 500px;
-    height: 250px;
+    height: 300px;
     background: rgba(255, 243, 225, 0.774);
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px 0 rgba(95, 64, 28, 0.37);
@@ -90,13 +90,14 @@ body {
     transform: translate(-50%, -50%) scale(0.85);
 
     animation: reveal 1s ease-out forwards;
-    animation-delay: 3.5s;
+    animation-delay: 3.8s;
 }
 
 .textSection p {
-    padding: 15% 0;
+    padding-top: 15%;
+    padding-bottom: 5%;
     margin: 0 auto;
-    opacity: 0;
+
     width: 350px;
 }
 
@@ -119,7 +120,7 @@ body {
     visibility: hidden;
 
     animation: preveal 1s ease forwards;
-    animation-delay: 5.5s;;
+    animation-delay: 6s;
 }
 
 .nextBtn:hover {
@@ -129,12 +130,66 @@ body {
     border: 2px solid transparent;
 }
 
-
-
 #messageText {
-    opacity: 1;
+    opacity: 0;
     transition: opacity 0.4s ease;
 }
+
+.inputReward {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;  
+}
+
+.userInput {
+    border: 2px solid rgba(124, 102, 74, 0.548);
+    color: rgba(124, 102, 74, 0.747);
+
+    background-color: #ffffffb9;
+
+    padding: 9px;
+    border-radius: 10px;
+    width: 200px;
+    padding-left: 15px;
+}
+
+.userInput:focus-within {
+    outline: none;
+}
+
+
+.inputReward > button {
+    border-radius: 20px;
+    background-color: #ffffffb9;
+    border: 2px solid #fff;
+    color: rgba(149, 123, 89, 0.541);
+
+    padding: 7px 8px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.inputReward > button:hover {
+    background-color: #fff;
+    color: rgba(149, 123, 89, 0.541);
+    box-shadow: 1px 1px 5px rgba(149, 123, 89, 0.411);
+    border: 2px solid transparent;
+}
+
+ .start {
+    text-decoration: none;
+    color: rgba(149, 123, 89, 0.651);
+}
+
 
 
 
@@ -191,4 +246,3 @@ body {
         visibility: visible;
     }
 }
-

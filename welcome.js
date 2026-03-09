@@ -1,6 +1,8 @@
 // CREATE ANIMATION TO REVEAL TEXTS AFTER BUTTON CLICK
 const btn = document.querySelector('.nextBtn');
 const text = document.getElementById('messageText');
+const reward = document.querySelector('.inputReward');
+
 
 const messages = [
     "sometimes all we need is a little push, this is your little push",
@@ -11,17 +13,39 @@ const messages = [
 
 let index = 0;
 
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        text.style.opacity = "1";
+    }, 5000);
+});
+
 btn.addEventListener('click', function() {
 
-text.style.opacity = "0";
+    text.style.opacity = "0";
 
     setTimeout(() => {
-        index = (index + 1) % messages.length;
+        index++;
+
+        if (index >= messages.length) {
+            index = messages.length - 1;
+        }
+
         text.textContent = messages[index];
 
         requestAnimationFrame(() => {
             text.style.opacity = "1";  
         });
+
+        if (index === messages.length - 1) {
+        btn.style.display = "none";
+        setTimeout(() => {
+          reward.style.opacity = "1"; 
+          reward.style.pointerEvents = "all"; 
+        }, 1000) 
+        }
         
     }, 400);
-});
+
+}); 
+
+
