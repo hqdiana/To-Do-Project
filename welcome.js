@@ -14,8 +14,13 @@ const messages = [
     "what reward would I offer myself once they are achieved?"
 ];
 
+existingReward = localStorage.getItem('storedReward') 
+    if (existingReward != null){
+        window.location.href = "index.html"
+    };
+
 let index = 0;
-let storedReward = [];
+let storedReward = '';
 
 window.addEventListener('load', () => {
     setTimeout(() => {
