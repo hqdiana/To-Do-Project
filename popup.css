@@ -4,33 +4,44 @@
     align-items: center;
     justify-content: center;
     width: 450px;
-    height: 350px;
+    height: 450px;
     margin: 0 auto;
     border-radius: 20px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 20;
+    z-index: 30;
 
-    /* visibility: hidden; */
-    border: 2px solid #fff;
-    background-color: antiquewhite;
-    box-shadow: 10px 10px 10px rgba(149, 123, 89, 0.76);
+    visibility: hidden;
+    border: 5px solid rgba(197, 125, 30, 0.692);
+    background-color: #fffbf6bd;
+    box-shadow: 5px 5px 10px rgba(149, 123, 89, 0.541);
+}
+.rewardPopup.active {
+    animation: popup 1s ease-in-out forwards;
 }
 
 .rewardPopup img {
     height: 300px;
     width: 300px;
-    margin-top: -60%;
+    margin-top: -50%;
 }
 
 .rewardMessage {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: "Nunito", sans-serif;
     color: rgba(107, 88, 64, 0.822);
     text-align: center;
-    padding: 0 50px;
+    padding-top: 10px;
+}
+
+.showReward {
+    text-align: center;
+    color: rgba(107, 88, 64, 0.822);
+    font-family: 'nunito', sans-serif;
+    font-size: 1.8rem;
+    margin-top: 0;
 }
 
 .closePopup {
@@ -43,7 +54,49 @@
     cursor: pointer;
     transition: 0.2s ease;
     box-shadow: 0px 1px 5px rgba(230, 207, 176, 0.76);
+    margin-top: 20px;
+    margin-bottom: -50px;
 }
 .closePopup:hover {
     box-shadow: 0px 1px 8px rgba(149, 123, 89, 0.76);
 }
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 239, 218, 0.829);
+    z-index: 20;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.overlay.active {
+    animation: overlay 0.5s ease-in-out forwards;
+}
+
+@keyframes popup {
+    0% {
+        opacity: 0;
+        scale: 0.8;
+    }
+    60% {
+        opacity: 1;
+        scale: 1.05;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes overlay {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
