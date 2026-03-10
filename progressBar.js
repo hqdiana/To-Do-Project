@@ -1,5 +1,7 @@
-// establish base value of progress to 0
+const popUp = document.querySelector('.rewardPopup');
+// establish base value of progress to 0 and no popUp showed
 let progress = 0;
+let popUpShown = false
 
 addEventListener("DOMContentLoaded", displayStoredProgress); 
 
@@ -40,10 +42,17 @@ function addProgress() {
     // stringify and store progress value in local storage
     let storedProgress = JSON.stringify(progress);
     localStorage.setItem('storedProgress', storedProgress);
+
+    if (progress === 100 && popUpShown === false) {
+        popUp.style.visibility = 'visible';
+        popUpShown = true;
+    }
 }
 
 function resetProgress() {
     progress = 0;
+    popUpShown = false;
+    popUp.style.visibility = 'hidden';
 
     // stringify and store progress value in local storage
     let storedProgress = JSON.stringify(progress);
