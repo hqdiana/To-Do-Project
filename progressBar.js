@@ -46,6 +46,11 @@ function addProgress() {
     if (progress === 100 && popUpShown === false) {
         popUp.style.visibility = 'visible';
         popUpShown = true;
+
+        let userReward = document.createElement('p');
+        userReward.classList.add('showReward');
+        userReward.textContent = `: time to give yourself a gift: ${storedReward}`;
+        popUp.appendChild(userReward);
     }
 }
 

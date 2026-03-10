@@ -22,7 +22,7 @@
 .rewardPopup img {
     height: 300px;
     width: 300px;
-    margin-top: -80%;
+    margin-top: -60%;
 }
 
 .rewardMessage {
@@ -44,7 +44,6 @@
     transition: 0.2s ease;
     box-shadow: 0px 1px 5px rgba(230, 207, 176, 0.76);
 }
-
 .closePopup:hover {
     box-shadow: 0px 1px 8px rgba(149, 123, 89, 0.76);
 }
