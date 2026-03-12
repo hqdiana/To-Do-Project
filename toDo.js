@@ -10,7 +10,7 @@ window.onload = function displayStoredTasks () {
     let parseTask = JSON.parse(localStorage.getItem('storedTask')); 
 
     if (parseTask === null) {
-        storedTask = [];
+        storedTask = []
     } else
         storedTask = parseTask;
 
@@ -22,46 +22,63 @@ function renderTasks() {
 
     // set default html task list element as empty
     taskList.innerHTML = "";
-    let tasksCounter = 0;
+    let taskCounter = 0;
 
     // loop through the task list array
     for (let i = 0; i < storedTask.length; i++) {
 
-         // check each current views total of tasks
+        // check each current views total of tasks
         if ((currentView === 'active' && storedTask[i].completed === false ) || 
             (currentView === 'completed' && storedTask[i].completed === true)) {
+            taskCounter += 1; 
 
-            tasksCounter += 1;
+            // for each value of the array create needed html elements
+                var div = document.createElement('div');
+                var para = document.createElement('p');
+                var paraDate = document.createElement('p');
 
-        // for each value of the array create needed html elements
-            var div = document.createElement('div');
-            var para = document.createElement('p');
-            var paraDate = document.createElement('p');
+            // attach stored ID to html element
+                div.setAttribute('data-id', storedTask[i].id);
 
-        // attach stored ID to html element
-            div.setAttribute('data-id', storedTask[i].id);
+            // assign classes to said html elements to modify them later in css
+                div.classList.add('taskItem');
+                para.classList.add('taskName');
+                paraDate.classList.add('taskDate')
 
-        // assign classes to said html elements to modify them later in css
-            div.classList.add('taskItem');
-            para.classList.add('taskName');
-            paraDate.classList.add('taskDate')
+            // add text content to display to each html element 
+                para.textContent = storedTask[i].task;
+                paraDate.textContent = storedTask[i].date; 
 
-        // add text content to display to each html element 
-            para.textContent = storedTask[i].task;
-            paraDate.textContent = storedTask[i].date; 
+            // add childs elements to parents to display them
+                div.appendChild(para);
+                div.appendChild(paraDate);
 
-        // add childs elements to parents to display them
-            div.appendChild(para);
-            div.appendChild(paraDate);
-
-        // if task is active, add a done button to it, else do not add it
-            if (currentView === 'active') {
-            var button = document.createElement('button')
-            button.classList.add('doneBtn');
-            button.textContent = '✔';
-            div.appendChild(button);
+            // if task is active, add a done button to it, else do not add it
+                if (currentView === 'active') {
+                var button = document.createElement('button')
+                button.classList.add('doneBtn');
+                button.textContent = '✔';
+                div.appendChild(button);
+                }
+                taskList.appendChild(div);
             }
-            taskList.appendChild(div);
+        }
+        // if the storage is empty display image based on progress
+        if (taskCounter === 0 && currentView === 'active') {
+            if (progress === 0) {
+                let empty = document.createElement('div');
+                empty.classList.add('emptyMessage');
+                taskList.appendChild(empty); 
+            } else if (progress > 0) {
+                let more = document.createElement('div');
+                more.classList.add('addMore');
+                taskList.appendChild(more); 
+            }
+        }
+        if (taskCounter === 0 && currentView === 'completed') {
+            var divEmpty = document.createElement('div');
+            divEmpty.classList.add('addFirstTask');
+            taskList.appendChild(divEmpty);
         }
     }
      // if the storage is empty display image based on progress
@@ -155,7 +172,6 @@ taskList.addEventListener('click', (e) => {
             storedTask[i].completed = true
         }
     } 
-    
         addProgress(10);
 
     // Stringify updated array
