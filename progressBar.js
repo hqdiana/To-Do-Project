@@ -1,4 +1,7 @@
 const popUp = document.querySelector('.rewardPopup');
+const popUpOverlay = document.querySelector('.overlay');
+
+let storedReward = localStorage.getItem('storedReward');
 // establish base value of progress to 0 and no popUp showed
 let progress = 0;
 let popUpShown = false
@@ -45,12 +48,29 @@ function addProgress() {
 
     if (progress === 100 && popUpShown === false) {
         popUp.style.visibility = 'visible';
+        popUp.classList.add('active');
+
+        popUpOverlay.style.visibility = 'visible';
+        popUpOverlay.classList.add('active');
+
         popUpShown = true;
 
         let userReward = document.createElement('p');
+        let button = document.createElement('button');
+        button.classList.add('closePopup');
+        button.textContent = 'close';
         userReward.classList.add('showReward');
-        userReward.textContent = `: time to give yourself a gift: ${storedReward}`;
+        userReward.textContent = `🌟 ${storedReward} 🌟`;
         popUp.appendChild(userReward);
+        popUp.appendChild(button);
+
+        button.addEventListener('click', function() {
+        popUp.style.visibility = 'hidden';
+        popUp.classList.remove('active');
+
+        popUpOverlay.style.visibility = 'hidden';
+        popUpOverlay.classList.remove('active');
+        })
     }
 }
 
@@ -58,6 +78,7 @@ function resetProgress() {
     progress = 0;
     popUpShown = false;
     popUp.style.visibility = 'hidden';
+    popUpOverlay.style.opacity = '0';
 
     // stringify and store progress value in local storage
     let storedProgress = JSON.stringify(progress);
