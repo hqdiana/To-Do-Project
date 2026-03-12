@@ -98,7 +98,7 @@ function renderTasks() {
                 divEmpty.classList.add('addFirstTask');
                 taskList.appendChild(divEmpty);
         }
-}
+
 
 
 // create a function to retrieve input values + store them 
